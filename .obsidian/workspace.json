@@ -11,15 +11,12 @@
             "id": "fc111994fcf5a1c9",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "pdf",
               "state": {
-                "aFile": "10_Papers/mHC Manifold-Constrained Hyper-Connections/Paper.md",
-                "bFile": "10_Papers/mHC Manifold-Constrained Hyper-Connections/Paper.md",
-                "aRef": "HEAD",
-                "bRef": ""
+                "file": "Meta/Downloads/paper/mHC Manifold-Constrained Hyper-Connections.pdf"
               },
-              "icon": "diff",
-              "title": "Diff: Paper"
+              "icon": "lucide-file-text",
+              "title": "mHC Manifold-Constrained Hyper-Connections"
             }
           }
         ]
@@ -95,6 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Meta/Downloads/paper/mHC Manifold-Constrained Hyper-Connections.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +102,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for mHC Manifold-Constrained Hyper-Connections"
             }
           },
           {
@@ -113,11 +111,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Meta/Downloads/paper/mHC Manifold-Constrained Hyper-Connections.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from mHC Manifold-Constrained Hyper-Connections"
             }
           },
           {
@@ -155,12 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Meta/Downloads/paper/mHC Manifold-Constrained Hyper-Connections.pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of mHC Manifold-Constrained Hyper-Connections"
             }
           },
           {
@@ -194,18 +194,22 @@
   },
   "active": "fc111994fcf5a1c9",
   "lastOpenFiles": [
+    "Meta/Downloads/paper/mHC Manifold-Constrained Hyper-Connections.pdf",
+    "Meta/Downloads/paper",
+    "Meta/Downloads/mHC Manifold-Constrained Hyper-Connections.24880",
+    "Meta/Downloads/2512.24880",
+    "Meta/python_modules/__pycache__/util.cpython-313.pyc",
+    "Meta/python_modules/__pycache__/__init__.cpython-313.pyc",
+    "Meta/python_modules/__pycache__",
+    "Meta/__pycache__/__init__.cpython-313.pyc",
+    "Meta/__pycache__",
+    "__init__.py",
+    "Meta/python_modules/util.py",
+    "01_Inbox/mHC Manifold-Constrained Hyper-Connections/Paper.md",
     "10_Papers/mHC Manifold-Constrained Hyper-Connections/Paper.md",
     "README.md",
-    "10_Papers/mHC Manifold-Constrained Hyper-Connections",
     "10_Papers/Untitled.md",
-    "99_Meta",
-    "30_concepts",
-    "20_Concepts",
-    "10_Papers",
     "Untitled.md",
-    "01_Inbox",
-    "Hello world.md",
-    "poetry.lock",
-    "pyproject.toml"
+    "Hello world.md"
   ]
 }
