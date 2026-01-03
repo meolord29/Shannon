@@ -75,6 +75,58 @@ vault-root/
 *   **20_Concepts (The Building Blocks):** We try not to repeat ourselves. Since the concept of "Softmax" appears in thousands of papers, we write the definition *once* in this folder, and link to it every time it comes up. This creates the "web" of knowledge.
 *   **30_Algorithms (The Lab):** This is where the magic happens. We separate deep math derivations and running code into this folder so different people can test the code without cluttering up the main reading notes.
 
+## Technical Setup
+
+This section is for developers who want to use the Python script to manage papers.
+
+### Prerequisites
+
+- **Python 3.13+**: Make sure you have a recent version of Python installed. You can download it from [python.org](https://www.python.org/downloads/).
+- **Poetry**: This project uses Poetry for dependency management. If you don't have it, follow the instructions on the [Poetry website](https://python-poetry.org/docs/#installation) to install it.
+
+### Installation
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone <repository-url>
+    cd <repository-name>
+    ```
+
+2.  **Install dependencies with Poetry:**
+
+    ```bash
+    poetry install
+    ```
+
+### Configuration
+
+1.  The script uses `Meta/config.ini` to define the main directories. You can add or modify directories in this file.
+
+```ini
+[directories]
+papers = 10_Papers
+concepts = 20_Concepts
+algorithms = 30_Algorithms
+```
+
+### Usage
+
+The main script is `main.py` which provides a command-line interface to manage papers.
+
+-   **List papers:**
+
+```bash
+poetry run python main.py list-papers <directory_key>
+```
+
+Replace `<directory_key>` with one of the keys from your `config.ini` (e.g., `papers`, `concepts`, `algorithms`) or use `all` to list papers from all directories.
+
+-   **Download papers:**
+
+After listing the papers, you will be prompted to enter the number of the paper you want to download.
+
+
 ## 🚀 How to join the "Hive Mind"
 
 You don't need to be a coding wizard to explore this graph.

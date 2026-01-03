@@ -11,12 +11,14 @@
             "id": "fc111994fcf5a1c9",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Meta/Downloads/paper/mHC Manifold-Constrained Hyper-Connections.pdf"
+                "file": "README.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "mHC Manifold-Constrained Hyper-Connections"
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
         ]
@@ -92,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Meta/Downloads/paper/mHC Manifold-Constrained Hyper-Connections.pdf",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for mHC Manifold-Constrained Hyper-Connections"
+              "title": "Backlinks for README"
             }
           },
           {
@@ -111,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Meta/Downloads/paper/mHC Manifold-Constrained Hyper-Connections.pdf",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from mHC Manifold-Constrained Hyper-Connections"
+              "title": "Outgoing links from README"
             }
           },
           {
@@ -154,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Meta/Downloads/paper/mHC Manifold-Constrained Hyper-Connections.pdf",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of mHC Manifold-Constrained Hyper-Connections"
+              "title": "Outline of README"
             }
           },
           {
