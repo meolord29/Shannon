@@ -45,15 +45,43 @@ Because this is modular, different people can work on the same paper at the same
 - **Active Notebooks:** We integrate Python code directly into our notes. Don't just trust the math—run it and see the results.
 - **Evergreen Content:** Unlike a blog post that gets old, these notes are constantly updated and refined by the community.
 
+***
+
+## 📂 Mapping the Vault (Directory Structure)
+
+To keep our "collaborative brain" organized, we have a simple system for where files live. Think of the folder structure as a pipeline that turns raw reading into polished knowledge.
+
+```text
+vault-root/
+├── 01_Inbox/             
+│   └── (The Landing Zone: Drop new papers or messy notes here first)
+│
+├── 10_Papers/            
+│   └── (The Library: Each academic paper gets its own folder and main hub)
+│
+├── 20_Concepts/          
+│   └── (The Building Blocks: Definitions like "Backpropagation" or "Vectors" that are used everywhere)
+│
+├── 30_Algorithms/        
+│   └── (The Lab: Where we keep the math details and Python code snippets)
+│
+└── 00_Meta/              
+    └── (The Engine Room: Templates and settings that make Obsidian run smoothly)
+```
+
+### A Quick Tour of the Folders
+
+*   **10_Papers (The Library):** This is where the research lives. If you are reading "Attention Is All You Need," you will find a folder here dedicated to it. Inside, there is a `main` note that acts like a Table of Contents for that specific paper.
+*   **20_Concepts (The Building Blocks):** We try not to repeat ourselves. Since the concept of "Softmax" appears in thousands of papers, we write the definition *once* in this folder, and link to it every time it comes up. This creates the "web" of knowledge.
+*   **30_Algorithms (The Lab):** This is where the magic happens. We separate deep math derivations and running code into this folder so different people can test the code without cluttering up the main reading notes.
+
 ## 🚀 How to join the "Hive Mind"
 
 You don't need to be a coding wizard to explore this graph.
 
 1. **Download Obsidian:** It’s a free tool that visualizes this repository. [Get it here](https://obsidian.md)
-
-2. .
-3. **Clone or Download this Repo:** Get the files onto your computer.
-4. **Open as a Vault:** Open the folder in Obsidian and watch the graph come to life!
+2. **Clone or Download this Repo:** Get the files onto your computer.
+3. **Open as a Vault:** Open the folder in Obsidian and watch the graph come to life!
 
 ### Want to Contribute?
 

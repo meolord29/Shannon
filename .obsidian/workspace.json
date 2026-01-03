@@ -4,21 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "30d26a8225a9b853",
+        "id": "7d8f00de1c2b05e0",
         "type": "tabs",
         "children": [
           {
-            "id": "fd8aab753710ee7d",
+            "id": "fc111994fcf5a1c9",
             "type": "leaf",
             "state": {
               "type": "split-diff-view",
               "state": {
-                "aFile": ".obsidian/plugins/obsidian-git/data.json",
-                "bFile": ".obsidian/plugins/obsidian-git/data.json",
-                "aRef": ""
+                "aFile": "10_Papers/mHC Manifold-Constrained Hyper-Connections/Paper.md",
+                "bFile": "10_Papers/mHC Manifold-Constrained Hyper-Connections/Paper.md",
+                "aRef": "HEAD",
+                "bRef": ""
               },
               "icon": "diff",
-              "title": "Diff: data.json"
+              "title": "Diff: Paper"
             }
           }
         ]
@@ -191,11 +192,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fd8aab753710ee7d",
+  "active": "fc111994fcf5a1c9",
   "lastOpenFiles": [
+    "10_Papers/mHC Manifold-Constrained Hyper-Connections/Paper.md",
+    "README.md",
+    "10_Papers/mHC Manifold-Constrained Hyper-Connections",
+    "10_Papers/Untitled.md",
+    "99_Meta",
+    "30_concepts",
+    "20_Concepts",
+    "10_Papers",
+    "Untitled.md",
+    "01_Inbox",
     "Hello world.md",
     "poetry.lock",
-    "pyproject.toml",
-    "README.md"
+    "pyproject.toml"
   ]
 }
