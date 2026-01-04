@@ -164,19 +164,9 @@
               "icon": "lucide-list",
               "title": "Outline of README"
             }
-          },
-          {
-            "id": "a3929a9a64972ca5",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
-            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -194,7 +184,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fc111994fcf5a1c9",
+  "active": "6ab979365cfbc4df",
   "lastOpenFiles": [
     "Meta/Downloads/paper/mHC Manifold-Constrained Hyper-Connections.pdf",
     "Meta/Downloads/paper",
