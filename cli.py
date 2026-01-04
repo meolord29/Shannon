@@ -2,7 +2,7 @@ import typer
 from rich.console import Console
 from rich.table import Table
 from rich.prompt import Prompt
-from Meta.python_modules import util
+from Meta.cli import util
 
 app = typer.Typer()
 console = Console()
