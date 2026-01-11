@@ -1,150 +1,247 @@
 # Shannon
 
+A collaborative knowledge management system for academic papers, built as a terminal-based application (TUI) that synchronizes with Git for version control and collaboration. Shannon transforms dense academic papers into interconnected, searchable notes using Obsidian-compatible markdown files.
 
-Welcome to a new way of learning. This repository uses **Obsidian** to build a living, breathing map of human knowledge—specifically focused on Artificial Intelligence, Data Science, and Mathematics.
+![Shannon TUI](https://via.placeholder.com/800x450?text=Shannon+Terminal+UI)
 
-We are moving away from static PDFs and isolated textbooks. Instead, we are building a **collaborative brain** where concepts are connected, interactive, and evolving.
+## 📚 Key Features
 
-## 🔭 The Global Vision
+- **Paper Import**: Fetch papers from OpenReview with metadata and PDF
+- **LLM Extraction**: Automated note generation using local LLMs (GPT-OSS 20B)
+- **Full-Text Search**: Tantivy-powered search across all content
+- **Git Integration**: Branch-based workflow with automatic commits
+- **Obsidian Compatible**: Markdown files work directly in Obsidian
 
-Academic research moves fast, but the way we consume it is stuck in the past.
+## 🏛️ Architecture
 
-Usually, when you read a complex paper, you take notes on paper or in a private document. That knowledge is locked away. If ten people read the same paper, they do the same work ten times.
+Shannon follows a layered architecture with clear separation of concerns:
 
-**Our vision is different: Knowledge as Code.**
-
-Imagine a library where:
-
-1. **Everything is Connected:** You don't just read about an algorithm; you see exactly which other papers influenced it and what future technologies it made possible.
-2. **Learning is Modular:** Complex topics are broken down into small, digestible "atomic" notes. You can understand the pieces before trying to understand the whole.
-3. **Code Meets Theory:** The mathematical formulas aren't just symbols on a page—they are paired with real, running code that helps you visualize how they actually work.
-
-## 🧭 How We Use This Space
-
-This project is built on **Obsidian**, a note-taking tool that functions like a personal wikipedia. It uses a "Graph View" to visualize connections between ideas.
-
-### The Problem We Are Solving
-
-Reading a 40-page research paper is overwhelming. It is dense, difficult, and monolithic.
-
-### Our Solution
-
-We "explode" papers into a network of ideas.
-
-- Instead of one long document, we create a **Main Hub** for the paper.
-- We break out difficult concepts (like complex math or specific algorithms) into their own separate notes.
-- We link these notes together so anyone can follow the trail of logic.
-
-**Visualizing the Impact:**  
-Because this is modular, different people can work on the same paper at the same time! One person can focus on summarizing the introduction, while another person writes the code for the math formulas. When we combine our work, we create a complete mastery of the topic.
-
-## 🌟 Features of this Repository
-
-- **Interactive Graph:** See how the "Transformer" architecture connects to "Large Language Models" visually.
-- **Collaborative Learning:** Digesting research is a team sport. We share our notes so the next person learns faster.
-- **Active Notebooks:** We integrate Python code directly into our notes. Don't just trust the math—run it and see the results.
-- **Evergreen Content:** Unlike a blog post that gets old, these notes are constantly updated and refined by the community.
-
-***
-
-## 📂 Mapping the Vault (Directory Structure)
-
-To keep our "collaborative brain" organized, we have a simple system for where files live. Think of the folder structure as a pipeline that turns raw reading into polished knowledge.
-
-```text
-vault-root/
-├── 01_Inbox/             
-│   └── (The Landing Zone: Drop new papers or messy notes here first)
-│
-├── 10_Papers/            
-│   └── (The Library: Each academic paper gets its own folder and main hub)
-│
-├── 20_Concepts/          
-│   └── (The Building Blocks: Definitions like "Backpropagation" or "Vectors" that are used everywhere)
-│
-├── 30_Algorithms/        
-│   └── (The Lab: Where we keep the math details and Python code snippets)
-│
-└── 00_Meta/              
-    └── (The Engine Room: Templates and settings that make Obsidian run smoothly)
+```
+┌─────────────────────────────────────────────────┐
+│ Presentation Layer (TUI, CLI)                   │
+├─────────────────────────────────────────────────┤
+│                                                 │
+│ ┌─────────┐  ┌─────────┐  ┌─────────┐          │
+│ │ Screens │  │ Widgets │  │ CLI     │          │
+│ └─────────┘  └─────────┘  └─────────┘          │
+│                                                 │
+└───────────────────────┬─────────────────────────┘
+                        │ Protocols (Guardrails)
+┌───────────────────────▼─────────────────────────┐
+│ Application Layer (Services)                    │
+├─────────────────────────────────────────────────┤
+│                                                 │
+│ ┌──────────┐ ┌──────────┐ ┌──────────────────┐ │
+│ │ Paper    │ │ Note     │ │ Extraction       │ │
+│ │ Service  │ │ Service  │ │ Service          │ │
+│ └──────────┘ └──────────┘ └──────────────────┘ │
+│                                                 │
+└───────────────────────┬─────────────────────────┘
+                        │ Protocols (Guardrails)
+┌───────────────────────▼─────────────────────────┐
+│ Infrastructure Layer                            │
+├─────────────────────────────────────────────────┤
+│                                                 │
+│ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌─────┐ │
+│ │ Database │ │ Git      │ │ Search   │ │ LLM │ │
+│ └──────────┘ └──────────┘ └──────────┘ └─────┘ │
+│                                                 │
+└───────────────────────────────────────────────────┘
 ```
 
-### A Quick Tour of the Folders
+### Protocol-Based Design
 
-*   **10_Papers (The Library):** This is where the research lives. If you are reading "Attention Is All You Need," you will find a folder here dedicated to it. Inside, there is a `main` note that acts like a Table of Contents for that specific paper.
-*   **20_Concepts (The Building Blocks):** We try not to repeat ourselves. Since the concept of "Softmax" appears in thousands of papers, we write the definition *once* in this folder, and link to it every time it comes up. This creates the "web" of knowledge.
-*   **30_Algorithms (The Lab):** This is where the magic happens. We separate deep math derivations and running code into this folder so different people can test the code without cluttering up the main reading notes.
+Shannon uses **protocols as guardrails** that define and enforce the rules of interaction between components, especially between the TUI/CLI and the backend services. These protocol interfaces:
 
-## Technical Setup
+- **Establish clear boundaries** between the presentation layer and application/infrastructure layers
+- **Define contracts** that components must adhere to, ensuring consistency and predictability
+- **Enable dependency injection** for flexible component substitution and testing
+- **Isolate concerns** so that UI components interact with backend code only through well-defined service interfaces
 
-This section is for developers who want to use the Python script to manage papers.
+Example: The TUI never directly accesses repositories or the database - it always goes through service protocols that enforce business rules and maintain data integrity.
 
-### Prerequisites
+```python
+# Protocol definition (guardrail)
+@runtime_checkable
+class PaperService(Protocol):
+    def import_from_openreview(self, paper_id: str) -> Result[Paper, Error]: ...
+    def get_paper(self, paper_id: PaperId) -> Result[Paper, Error]: ...
+    # More methods...
 
-- **Python 3.13+**: Make sure you have a recent version of Python installed. You can download it from [python.org](https://www.python.org/downloads/).
-- **Poetry**: This project uses Poetry for dependency management. If you don't have it, follow the instructions on the [Poetry website](https://python-poetry.org/docs/#installation) to install it.
+# TUI component using the protocol
+class PaperDetailScreen(Screen):
+    def __init__(self, paper_service: PaperService):
+        self.paper_service = paper_service
+        
+    def on_button_press(self, event: ButtonPressed) -> None:
+        # TUI calls service through protocol boundary
+        result = self.paper_service.get_paper(paper_id)
+        # Handle the result...
+```
 
-### Installation
+## 🚀 Installation
 
-1.  **Clone the repository:**
+### Option 1: Quick Install
 
-    ```bash
-    git clone <repository-url>
-    cd <repository-name>
-    ```
+```bash
+curl -LsSf https://raw.githubusercontent.com/yourusername/shannon/main/scripts/install.sh | sh
+```
 
-2.  **Install dependencies with Poetry:**
+This will:
+- Install uv (Python package manager) if not present
+- Clone the repository to ~/.shannon
+- Create a virtual environment and install the package
+- Initialize the database
+- Add shannon to your PATH
 
-    ```bash
-    poetry install
-    ```
+### Option 2: Manual Install
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/shannon.git
+cd shannon
+
+# Install with uv (recommended)
+pip install uv
+uv venv
+uv pip install -e .
+
+# Initialize the database
+uv run shannon init
+```
+
+## 🔧 Setup
+
+### LLM Setup (Required for Paper Extraction)
+
+Shannon requires a local LLM running for paper extraction:
+
+#### Option 1: LM Studio (Recommended)
+
+1. Download and install [LM Studio](https://lmstudio.ai/)
+2. Download the GPT-OSS 20B model or similar
+3. Start the local server on port 1234
+
+#### Option 2: llama.cpp
+
+```bash
+./llama-server -m models/gpt-oss-20b.gguf --port 8080
+```
 
 ### Configuration
 
-1.  The script uses `Meta/config.ini` to define the main directories. You can add or modify directories in this file.
+Default configuration is in `src/config/default.toml`. Create a custom config at `~/.shannon/config.toml`.
 
-```ini
-[directories]
-papers = 10_Papers
-concepts = 20_Concepts
-algorithms = 30_Algorithms
-```
+## 📋 Usage
 
-### Usage
-
-The main script is `main.py` which provides a command-line interface to manage papers.
-
--   **List papers:**
+### CLI Commands
 
 ```bash
-poetry run python main.py list-papers <directory_key>
+# Launch TUI
+shannon
+
+# Import a paper from OpenReview
+shannon import <OpenReview ID>
+
+# Extract content with LLM
+shannon extract <paper_id>
+
+# Search across notes
+shannon search "<query>"
+
+# Sync with Git repository
+shannon sync
 ```
 
-Replace `<directory_key>` with one of the keys from your `config.ini` (e.g., `papers`, `concepts`, `algorithms`) or use `all` to list papers from all directories.
+### TUI Navigation
 
--   **Download papers:**
+| Key | Action |
+|-----|--------|
+| `i` | Open inbox |
+| `p` | Browse papers |
+| `/` | Search |
+| `g` | Git status |
+| `q` | Quit |
 
-After listing the papers, you will be prompted to enter the number of the paper you want to download.
+### Terminal Flow
 
+```
+Home Screen → Inbox → Paper Detail → Editor
+               ↓         ↑
+           Papers    ←   ↓   →  Search
+```
 
-## 🚀 How to join the "Hive Mind"
+## 💻 Development
 
-You don't need to be a coding wizard to explore this graph.
+### Project Structure
 
-1. **Download Obsidian:** It’s a free tool that visualizes this repository. [Get it here](https://obsidian.md)
-2. **Clone or Download this Repo:** Get the files onto your computer.
-3. **Open as a Vault:** Open the folder in Obsidian and watch the graph come to life!
+```
+src/
+├── shannon/             # Main application entry points
+├── core/                # Foundation layer (protocols, etc.)
+├── config/              # Configuration
+├── domain/              # Business domain (models)
+├── database/            # Data persistence (SQLite)
+├── services/            # Business logic
+├── git/                 # Version control
+├── llm/                 # LLM integration
+├── search/              # Full-text search
+├── linter/              # Note standardization
+├── tui/                 # Terminal UI
+├── cli/                 # Command-line interface
+└── helpers/             # Utilities
+```
 
-### Want to Contribute?
+### Setting Up Development Environment
 
-We believe knowledge belongs to everyone. If you are reading a paper or studying a concept:
+```bash
+# Clone repository
+git clone https://github.com/yourusername/shannon.git
+cd shannon
 
-1. **Check the Graph:** Does a note for your concept already exist?
-2. **Make a Connection:** Link your new findings to existing ideas.
-3. **Share your Branch:** Submit your notes back to us so everyone can benefit.
+# Create venv and install dev dependencies
+uv venv
+uv pip install -e ".[dev]"
 
-## 🤝 Community & Support
+# Install pre-commit hooks
+pre-commit install
+```
 
-This is an experiment in **Open Source Education**. We are turning the complex world of LLMs and Data Science into something accessible, navigable, and deeply interconnected.
+### Running Tests
 
-If you have an idea for a paper we should analyze, or a concept that needs a better explanation, please open an Issue or a Discussion!
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov
+
+# Run specific test categories
+pytest tests/unit/
+pytest tests/integration/
+```
+
+### Development Guidelines
+
+- **Domain Models**: Define in `src/domain/models/`
+- **Repositories**: Implement in `src/database/repositories/`
+- **Services**: Add application logic in `src/services/`
+- **UI Screens**: Add TUI screens in `src/tui/screens/`
+- **CLI Commands**: Define in `src/cli/commands.py`
+
+## 📐 Design Principles
+
+1. **Local-First**: All data stored locally, works offline
+2. **Git-Native**: Every change is versioned
+3. **Protocol-Based**: Interfaces enable testing and flexibility
+4. **Event-Driven**: Decoupled components via pub/sub
+5. **Result Types**: Explicit error handling without exceptions
+6. **Obsidian Compatible**: Standard markdown, wiki-links
+
+## 📝 License
+
+MIT
+
+## 🤝 Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](docs/contributing.md) for details.
