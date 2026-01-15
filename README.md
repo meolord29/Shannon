@@ -234,13 +234,13 @@ pytest tests/integration/
 1. **Local-First**: All data stored locally, works offline
 2. **Git-Native**: Every change is versioned
 3. **Protocol-Based**: Interfaces enable testing and flexibility
-4. **Event-Driven**: Decoupled components via pub/sub
-5. **Result Types**: Explicit error handling without exceptions
-6. **Obsidian Compatible**: Standard markdown, wiki-links
+5. **Event-Driven**: Decoupled components via pub/sub
+6. **Result Types**: Explicit error handling without exceptions
+7. **Obsidian Compatible**: Standard markdown, wiki-links
 
 ## 📝 License
 
-MIT
+GPLv3
 
 ## 🤝 Contributing
 
