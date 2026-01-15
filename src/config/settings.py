@@ -5,6 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Optional
 
 from src.core.types import LLMBackend
+from src.llm.config import LLMConfig
 
 class Settings(BaseSettings):
     """Application settings loaded from environment and config file."""
@@ -82,9 +83,8 @@ class Settings(BaseSettings):
     def llm_cache_path(self) -> Path:
         return self.app_dir / "data" / "llm_cache.db"
     
-    def get_llm_config(self) -> "LLMConfig":
+    def get_llm_config(self) -> LLMConfig:
         """Build LLMConfig from settings."""
-        from src.llm.config import LLMConfig
         
         return LLMConfig(
             backend=self.llm_backend,

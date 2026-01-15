@@ -1,7 +1,8 @@
 # type aliases and typedDicts"""Type aliases and TypedDicts for type safety."""
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import TypeVar, Generic, Sequence, TypedDict, NewType, Any, Optional
 from datetime import datetime
+from enum import Enum
 
 
 # =============================================================================

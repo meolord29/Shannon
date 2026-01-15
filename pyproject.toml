@@ -31,6 +31,7 @@ dependencies = [
     "libcst>=1.0.0",             # Required by fixit
     "tomli>=2.0.0",              # TOML parsing (config)
     "tomli-w>=1.0.0",            # TOML writing
+    "keyring>=25.0.0",           # Secure credential storage
 ]
 
 [project.optional-dependencies]
